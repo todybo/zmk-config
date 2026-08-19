@@ -25,6 +25,7 @@ After editing the keymap file upload it to the original folder using the "Add fi
 Steps taken from [ZMK Development Setup](https://zmk.dev/docs/development/setup). Commands have been provided where the steps differ from the documentation. Tested on Ubuntu 20.04.
 
 1. [Install prerequisites](https://zmk.dev/docs/development/setup#prerequisites)
+    - Note that CMAKE release must be 3.31.xx or older
 2. [Install `west`](https://zmk.dev/docs/development/setup#west-installation)
 3. [Install toolchain](https://zmk.dev/docs/development/setup#toolchain-installation)
 4. [Initialize West]([Initialize West](https://zmk.dev/docs/development/setup#initialize-west))
@@ -36,6 +37,6 @@ Steps taken from [ZMK Development Setup](https://zmk.dev/docs/development/setup)
 7. [Install Zephyr Python Dependencies](https://zmk.dev/docs/development/setup#install-zephyr-python-dependencies)
 8. Build the firmware 
     ```
-    west build -s zmk/app -b bt60 -- -DZMK_CONFIG="$(pwd)/config"
+    west build -s zmk/app -b "bt60@1.0.0//zmk" -- -DZMK_CONFIG="$PWD/config" 
     ```
 9. Built firmware will be `build/zephyr/zmk.uf2`
